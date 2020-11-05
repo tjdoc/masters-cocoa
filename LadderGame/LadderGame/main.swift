@@ -7,22 +7,35 @@
 
 import Foundation
 
-enum LadderError: Error {
-    case invalidInput
-    
-}
-
-func inputProcess() throws -> Int {
+func inputProcess() -> Int {
     
     print("Input the number of players (2-8):", terminator:" ")
-    let playerNumStr = readLine()?.trimmingCharacters(in: .whitespacesAndNewlines)
-    guard Int(playerNumStr!) != nil else {
-        throw LadderError.invalidInput
+    let playerNumStr = (readLine() ?? "0").trimmingCharacters(in: .whitespacesAndNewlines)
+    guard (Int(playerNumStr) ?? 0) >= 2 && (Int(playerNumStr) ?? 0) <= 8 else {
+        return 0
     }
-    let playerNum = Int(playerNumStr!)
-    return playerNum!
+    let playerNum = Int(playerNumStr) ?? 0
+    return playerNum
 }
 
-func ladderGame(playerNum: Int) {
-    
+func printLadder(playerNum: Int, ladderHeight: Int) {
+    guard playerNum != 0 else {
+        print("Invalid number of players input. Please use numbers between 2-8")
+        return
+    }
+    guard ladderHeight > 0 else {
+        print("Ladder height must be positive")
+        return
+    }
+    print("So far so good!")
 }
+
+func main() {
+    
+    let playerNum = inputProcess()
+    let ladderHeight = 4
+    printLadder(playerNum: playerNum, ladderHeight: ladderHeight)
+
+}
+
+main()
