@@ -7,11 +7,10 @@
 
 import Foundation
 
-func inputProcess() -> Int {
+func getNumPlayers() -> Int {
     
     print("Input the number of players (2-8):", terminator:" ")
-    // throw로 처리하고 싶었으나 도저히 못하겠음
-    let playerNumStr = (readLine() ?? "0").trimmingCharacters(in: .whitespacesAndNewlines)
+    let playerNumStr = (readLine()!).trimmingCharacters(in: .whitespacesAndNewlines)
     guard (Int(playerNumStr) ?? 0) >= 2 && (Int(playerNumStr) ?? 0) <= 8 else {
         return 0
     }
@@ -40,5 +39,5 @@ func printLadder(playerNum: Int, ladderHeight: Int) {
     print()
 }
 
-let playerNum = inputProcess()
+let playerNum = getNumPlayers()
 printLadder(playerNum: playerNum, ladderHeight: 4)
