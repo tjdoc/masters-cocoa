@@ -4,43 +4,27 @@
 //
 //  Created by Tae-Jin Oh on 2020/11/06.
 //
+//  https://www.acmicpc.net/problem/2438
+//  별찍기
 
 import Foundation
 
-// https://www.acmicpc.net/problem/2920
-// 음계
-
-func p2920() {
-    let inputMsg = "Input 8 integer notes separated by spaces. Each notes must be in the range 1 <= n <= 8"
-    let invalidMsg = "Error: Invalid input"
-    
-    print(inputMsg)
-    let inStr = readLine()!
-    
-    // check input
-    guard inStr.split(separator: " ").count == 8 else {
-        print(invalidMsg)
-        return p2920()
+func p2438(check:Bool = false) {
+    if check {
+        print("Input number of lines (1 <= N <= 100)")
     }
-    let inArr = inStr.split(separator: " ")
-    for noteStr in inArr {
-        guard Int(noteStr) != nil && Int(noteStr)! >= 1 && Int(noteStr)! <= 8 else {
-            print(invalidMsg)
-            return p2920()
+    let linesStr = readLine()!
+    if check {
+        guard Int(linesStr) != nil && Int(linesStr)! >= 1 && Int(linesStr)! <= 100 else {
+            print("Invalid input")
+            return p2438()
         }
     }
-    
-    let ascendingArr = "1 2 3 4 5 6 7 8".split(separator:" ")
-    let descendingArr = "8 7 6 5 4 3 2 1".split(separator:" ")
-    
-    switch inArr {
-    case ascendingArr:
-        print("ascending")
-    case descendingArr:
-        print("descening")
-    default:
-        print("mixed")
+    let lines = Int(linesStr)!
+    for line in 1...lines {
+        print(String(repeating: "*", count: line))
     }
 }
 
-p2920()
+//p2438(check: true)
+p2438()

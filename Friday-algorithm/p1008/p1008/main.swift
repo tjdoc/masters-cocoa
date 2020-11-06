@@ -10,8 +10,10 @@ import Foundation
 // https://www.acmicpc.net/problem/1008
 // A/B
 
-func p1008() {
-    print("Input two positive integers less than 10, separated with a space")
+func p1008(msg:Bool = false) {
+    if msg {
+        print("Input two positive integers less than 10, separated with a space")
+    }
     let inStr = readLine()!
     guard inStr.contains(" ") && inStr.split(separator:" ").count == 2 else {
         print("Error, must input two positive integers less than 10, separated by a space")
