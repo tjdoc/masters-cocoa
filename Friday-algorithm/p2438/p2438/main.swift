@@ -7,20 +7,40 @@
 
 import Foundation
 
-// https://www.acmicpc.net/problem/2438
-// printing stars
+// https://www.acmicpc.net/problem/2920
+// 음계
 
-func p2438() {
-    print("Input an integer N within 1 <= N <= 100")
+func p2920() {
+    let inputMsg = "Input 8 integer notes separated by spaces. Each notes must be in the range 1 <= n <= 8"
+    let invalidMsg = "Error: Invalid input"
+    
+    print(inputMsg)
     let inStr = readLine()!
-    guard 1 <= Int(inStr)! && Int(inStr)! <= 100 else {
-        print("Error, must input an integer N within 1 <= N <= 100")
-        return p2438()
+    
+    // check input
+    guard inStr.split(separator: " ").count == 8 else {
+        print(invalidMsg)
+        return p2920()
     }
-    let lines = Int(inStr)!
-    for line in 1...lines {
-        print(String(repeating:"*", count:line))
+    let inArr = inStr.split(separator: " ")
+    for noteStr in inArr {
+        guard Int(noteStr) != nil && Int(noteStr)! >= 1 && Int(noteStr)! <= 8 else {
+            print(invalidMsg)
+            return p2920()
+        }
+    }
+    
+    let ascendingArr = "1 2 3 4 5 6 7 8".split(separator:" ")
+    let descendingArr = "8 7 6 5 4 3 2 1".split(separator:" ")
+    
+    switch inArr {
+    case ascendingArr:
+        print("ascending")
+    case descendingArr:
+        print("descening")
+    default:
+        print("mixed")
     }
 }
 
-p2438()
+p2920()
