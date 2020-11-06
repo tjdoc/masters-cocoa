@@ -39,11 +39,11 @@ func autoConvert(_ inStr: String) -> String {
         out = String(convertInchToCM(inputFloat)/100.0)+"m"
     case "m inch":
         out = String(convertCMToInch(inputFloat*100))+"inch"
-    case "cm":
+    case "cm", "cm m":
         out = String(inputFloat/100.0)+"m"
-    case "m":
+    case "m", "m cm":
         out = String(inputFloat*100)+"cm"
-    case "inch":
+    case "inch", "inch cm":
         out = String(convertInchToCM(inputFloat))+"cm"
     default:
         return "Unsupported conversion"
@@ -55,6 +55,9 @@ print(autoConvert("18cm inch"))
 print(autoConvert("25.4inch m"))
 print(autoConvert("0.5m inch"))
 print(autoConvert("183cm"))
+print(autoConvert("183cm m"))
 print(autoConvert("3.14m"))
+print(autoConvert("3.14m cm"))
 print(autoConvert("2.54inch"))
+print(autoConvert("2.54inch cm"))
 
