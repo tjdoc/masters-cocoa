@@ -10,7 +10,17 @@
 import Foundation
 
 func score(testStr:String) -> Int {
-    return 0
+    var total = 0
+    var streak = 0
+    for ox in testStr {
+        if ox == "O" {
+            streak += 1
+            total += streak
+        } else {
+            streak = 0
+        }
+    }
+    return total
 }
 
 func p8958(check:Bool = false) {
