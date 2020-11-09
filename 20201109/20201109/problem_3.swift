@@ -27,7 +27,7 @@ func passwordValidator(password: String) -> Int {
     }
     
     // check if password contains special character
-    let alnumRemovedCount = password.replacingOccurrences(of: #"[a-zA-Z0-9]"#, with:"",
+    let alnumRemovedCount = password.replacingOccurrences(of: "[a-zA-Z0-9]", with:"",
                                                           options: .regularExpression).count
     levelCheck[3] = alnumRemovedCount > 0 ? true : false
     

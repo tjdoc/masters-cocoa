@@ -10,15 +10,13 @@ import Foundation
 // practice 2
 
 func checkLength(password: String) -> Bool {
-    let out = password.count < 5 || password.count >= 24 ? false : true
-    return out
+    return password.count < 5 || password.count >= 24 ? false : true
 }
 
 func checkChar(password: String) -> Bool {
-    let wrongChars = password.replacingOccurrences(of: #"[a-zA-Z0-9-]"#, with:"",
+    let wrongChars = password.replacingOccurrences(of: "[a-zA-Z0-9-]", with:"",
                                               options: .regularExpression)
-    let out = wrongChars.count == 0 ? true : false
-    return out
+    return wrongChars.count == 0 ? true : false
 }
 
 func checkNum(password: String) -> Bool {
@@ -40,11 +38,7 @@ func checkNum(password: String) -> Bool {
 }
 
 func IDValidator(password: String) -> Bool {
-    if (checkLength(password: password) &&
-            checkChar(password: password) &&
-            checkNum(password: password)) {
-        return true
-    } else {
-        return false
-    }
+    return (checkLength(password: password) &&
+                checkChar(password: password) &&
+                checkNum(password: password)) ? true : false
 }

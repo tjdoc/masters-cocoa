@@ -44,7 +44,7 @@ myMagic.printMagicSquare()
 printPractice("2")
 let passDict1 =
     ["!what": false,
-     "heelo ": false,
+     "hello ": false,
      "toolongpasswordthisisverylong": false,
      "shor": false,
      "11ok23": true,
@@ -69,7 +69,7 @@ let passDict2 =
      "ab?": 3]
 for (key, val) in passDict2 {
     let result = passwordValidator(password: key) == val ? "PASS" : "FAIL"
-    print("\(result): \(key)")
+    print("\(result) Level \(val): \(key)")
 }
      
 // practice 4
