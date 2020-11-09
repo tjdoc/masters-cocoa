@@ -84,7 +84,7 @@ struct MagicSquare {
         var out = Array(repeating:Array(repeating:0, count:row), count:row)
         var (irow, icol) = (0, 0)
         if row%2 == 1 {
-            // starting point
+            // starting point. specifying row 5 is not necessary. just to match solution pattern of Lucas
             if row == 5 {
                 (irow, icol) = (0, row/2)
             } else {
@@ -92,6 +92,7 @@ struct MagicSquare {
             }
             for num in 1...(row*row) {
                 out[irow][icol] = num
+                // specifying row 5 is not necessary. just to match solution pattern of Lucas
                 if row == 5 {
                     (irow, icol) = moveUpperRight(arr: out, irow: irow, icol: icol, size: row)
                 } else {

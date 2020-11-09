@@ -8,8 +8,10 @@
 import Foundation
 
 func passwordValidator(password: String) -> Int {
-    //  levelCheck = [longpass, hasNum, hasAlpha, hasSpecial]
-    var levelCheck = [false, false, false, false]
+    var levelCheck = [false, // password long enough
+                      false, // contains number
+                      false, // contains alphabet
+                      false] // contains special character
     
     // check password length
     if password.count >= 8 {
