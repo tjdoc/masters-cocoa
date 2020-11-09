@@ -9,19 +9,23 @@ import Foundation
 
 // practice 2
 
-func checkLength(password: String) -> Bool {
-    return password.count < 5 || password.count >= 24 ? false : true
-}
+func IDValidator(password: String) -> Bool {
+    // check length
+    let checkLength = password.count < 5 || password.count >= 24 ? false : true
+    guard checkLength else {
+        return false
+    }
 
-func checkChar(password: String) -> Bool {
-    let wrongChars = password.replacingOccurrences(of: "[a-zA-Z0-9-]", with:"",
-                                              options: .regularExpression)
-    return wrongChars.count == 0 ? true : false
-}
-
-func checkNum(password: String) -> Bool {
+    // check if password contains invalid characters
     let range = NSRange(location: 0, length: password.utf16.count)
-    let regex = try! NSRegularExpression(pattern: "[0-9]{3,}")
+    var regex = try! NSRegularExpression(pattern: "[^a-zA-Z0-9-]")
+    let checkChar = (regex.firstMatch(in: password, options: [], range: range) != nil) ? false : true
+    guard checkChar else {
+        return false
+    }
+    
+    // check recurring or consecutive number occurrence
+    regex = try! NSRegularExpression(pattern: "[0-9]{3,}")
     for match in regex.matches(in: password, options: [], range: range) {
         let numStr = String(password[Range(match.range, in:password)!])
         for ii in 0...9 {
@@ -35,10 +39,4 @@ func checkNum(password: String) -> Bool {
         }
     }
     return true
-}
-
-func IDValidator(password: String) -> Bool {
-    return (checkLength(password: password) &&
-                checkChar(password: password) &&
-                checkNum(password: password)) ? true : false
 }
