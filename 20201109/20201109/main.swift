@@ -50,7 +50,8 @@ let passDict1 =
      "11ok23": true,
      "11ok2356": true,
      "11ok2223": false,
-     "11ok2348": false]
+     "11ok2348": false,
+     "11ok9015": false,]
 for (key, val) in passDict1 {
     let result = IDValidator(password: key) == val ? "PASS" : "FAIL"
     print("\(result): \(key)")
