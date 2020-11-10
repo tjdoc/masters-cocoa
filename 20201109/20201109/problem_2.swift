@@ -29,7 +29,7 @@ func IDValidator(password: String) -> Bool {
     for match in regex.matches(in: password, options: [], range: range) {
         let numStr = String(password[Range(match.range, in:password)!])
         for ii in 0...9 {
-            let checkPatterns = ["\(ii)\(ii)\(ii)",      // recurring number
+            let checkPatterns = ["\(ii)\(ii)\(ii)",                // recurring number
                                  "\(ii)\((ii+1)%10)\((ii+2)%10)"]  // consecutive number
             for checkPattern in checkPatterns {
                 if numStr.contains(checkPattern) {
