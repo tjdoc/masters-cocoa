@@ -13,7 +13,7 @@
 		A2EF6E1D255B9A27002AC9EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2EF6E1B255B9A27002AC9EA /* Main.storyboard */; };
 		A2EF6E1F255B9A2A002AC9EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2EF6E1E255B9A2A002AC9EA /* Assets.xcassets */; };
 		A2EF6E22255B9A2A002AC9EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2EF6E20255B9A2A002AC9EA /* LaunchScreen.storyboard */; };
-		A2EF6E2B255B9CF0002AC9EA /* problem_3.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF6E2A255B9CF0002AC9EA /* problem_3.swift */; };
+		A2EF6E54255C1E1D002AC9EA /* password.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF6E53255C1E1D002AC9EA /* password.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,7 +25,7 @@
 		A2EF6E1E255B9A2A002AC9EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2EF6E21255B9A2A002AC9EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A2EF6E23255B9A2A002AC9EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		A2EF6E2A255B9CF0002AC9EA /* problem_3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = problem_3.swift; path = ../../20201109/20201109/problem_3.swift; sourceTree = "<group>"; };
+		A2EF6E53255C1E1D002AC9EA /* password.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = password.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,8 +61,8 @@
 				A2EF6E15255B9A27002AC9EA /* AppDelegate.swift */,
 				A2EF6E17255B9A27002AC9EA /* SceneDelegate.swift */,
 				A2EF6E19255B9A27002AC9EA /* ViewController.swift */,
-				A2EF6E2A255B9CF0002AC9EA /* problem_3.swift */,
 				A2EF6E1B255B9A27002AC9EA /* Main.storyboard */,
+				A2EF6E53255C1E1D002AC9EA /* password.swift */,
 				A2EF6E1E255B9A2A002AC9EA /* Assets.xcassets */,
 				A2EF6E20255B9A2A002AC9EA /* LaunchScreen.storyboard */,
 				A2EF6E23255B9A2A002AC9EA /* Info.plist */,
@@ -140,8 +140,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2EF6E54255C1E1D002AC9EA /* password.swift in Sources */,
 				A2EF6E1A255B9A27002AC9EA /* ViewController.swift in Sources */,
-				A2EF6E2B255B9CF0002AC9EA /* problem_3.swift in Sources */,
 				A2EF6E16255B9A27002AC9EA /* AppDelegate.swift in Sources */,
 				A2EF6E18255B9A27002AC9EA /* SceneDelegate.swift in Sources */,
 			);

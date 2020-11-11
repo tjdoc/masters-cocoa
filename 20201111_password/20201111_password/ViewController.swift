@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
     @IBAction func checkPWButton(_ sender: Any) {
         let passwordLevel = passwordValidator(password: passwordInput.text ?? "")
-        let levelDict = [1: [UIColor.red, "아주 약한암호"],
+        let levelDict = [1: [UIColor.red, "아주 약한 암호"],
                          2: [UIColor.orange, "약한 암호"],
                          3: [UIColor.yellow, "보통 암호"],
                          4: [UIColor.blue, "강한 암호"],
