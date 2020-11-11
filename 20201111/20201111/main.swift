@@ -23,7 +23,7 @@ func testInterest(unitday: Int) -> Double {
 
 for day in 1...365 {
     let spaces = String(repeating:" ", count:3-String(day).count)
-    print("예치일: \(spaces)\(day) | 이자+원금: \(testInterest(unitday:day)))")
+    print("예치일: \(spaces)\(day) | 이자+원금: \(testInterest(unitday:day))")
 }
 
 print()
