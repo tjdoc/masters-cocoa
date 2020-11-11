@@ -20,7 +20,7 @@ func passwordValidator(password: String) -> Int {
     let range = NSRange(location: 0, length: password.utf16.count)
     
     // check if password contains number, alphabet, or other characters
-    let patternList = ["[0-9]", "[a-zA-Z]", "[^a-zA-Z0-9]"]
+    let patternList = ["[0-9]", "[a-zA-Z]", "[-+!@#$%]"]
     for (ii, pattern) in patternList.enumerated() {
         let regex = try! NSRegularExpression(pattern: pattern)
         if regex.firstMatch(in: password, options: [], range: range) != nil {
