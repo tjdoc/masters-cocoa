@@ -41,3 +41,35 @@ func passwordValidator(password: String) -> Int {
         return 3
     }
 }
+
+func genStrongPassword() -> String {
+    let passLength = 20
+    var out = [String]()
+    var outStr = ""
+    let numDigits = passLength/4
+    let numAlpha = passLength/2
+    let numSpecial = passLength - (numDigits + numAlpha)
+    let strDigits = "0123456789"
+    var strAlphabet = "abcdefghijklmnopqrstuvwxyz"
+    strAlphabet = strAlphabet + strAlphabet.uppercased()
+    let strSpecial = "-+!@#$%"
+    for _ in 0..<numDigits {
+        out.append(String(strDigits.randomElement()!))
+    }
+    for _ in 0..<numAlpha {
+        out.append(String(strAlphabet.randomElement()!))
+    }
+    for _ in 0..<numSpecial {
+        out.append(String(strSpecial.randomElement()!))
+    }
+//    if passwordValidator(password: String(out)) == 5 {
+//        return String(out)
+//    } else {
+//        return genStrongPassword()
+//    }
+    out.shuffle()
+    for str in out {
+        outStr += str
+    }
+    return outStr
+}
