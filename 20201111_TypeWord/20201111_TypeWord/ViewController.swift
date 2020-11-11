@@ -39,16 +39,10 @@ class ViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.inputField.delegate = self
-        // Do any additional setup after loading the view.
         currentWord.text = wordList2[0]
         nextWord.text = wordList2[1]
-        
-        // dismiss keyboard when touching other area
-        // code from https://stackoverflow.com/questions/24126678/close-ios-keyboard-by-touching-anywhere-using-swift
+        // dismiss keyboard when touching other area. code from stackoverflow
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
-
-        //Uncomment the line below if you want the tap not interfere and cancel other interactions.
-        //tap.cancelsTouchesInView = false
         view.addGestureRecognizer(tap)
     }
     
