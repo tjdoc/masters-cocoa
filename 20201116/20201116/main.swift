@@ -39,12 +39,18 @@ print("count test: ", bit5.count == 32 ? "PASS" : "FAIL")
 print(bit5.find(by:3))
 
 //==================================================
-printPractice("3: bubble sort")
+printPractice("3: bubble sort test 1")
 var randArr = [Int]()
 for _ in 0..<10 {
     randArr.append(Int.random(in:0..<100))
 }
 var sortArr = BubbleSort(randArr)
+print("original:   \(sortArr.valArr)")
+print("ascending:  \(sortArr.sorted(isAscending: true))")
+print("descending: \(sortArr.sorted(isAscending: false))")
+
+printPractice("3: bubble sort test 2")
+sortArr = BubbleSort(Array(0...10))
 print("original:   \(sortArr.valArr)")
 print("ascending:  \(sortArr.sorted(isAscending: true))")
 print("descending: \(sortArr.sorted(isAscending: false))")

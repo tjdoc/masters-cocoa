@@ -14,25 +14,26 @@ class BubbleSort {
     }
     func sorted(isAscending: Bool) -> [Int] {
         var arrCopy = valArr
+        var swapped = false
         var lastIndex = arrCopy.count-1
-        var finished = false
         func swap(arr: inout [Int], aIndex: Int, bIndex:Int) {
             let temp = arr[aIndex]
             arr[aIndex] = arr[bIndex]
             arr[bIndex] = temp
         }
         repeat {
+            swapped = false
             for ii in 1...lastIndex {
                 switch (arrCopy[ii-1] < arrCopy[ii], isAscending) {
                 case (true, false), (false, true):
                     swap(arr:&arrCopy, aIndex:ii-1, bIndex:ii)
+                    swapped = true
                 default:
                     continue
                 }
             }
             lastIndex -= 1
-            finished = lastIndex == 1 ? true : false
-        } while !finished
+        } while swapped && lastIndex != 0
         return arrCopy
     }
 }
