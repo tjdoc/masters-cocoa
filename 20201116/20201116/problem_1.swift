@@ -18,19 +18,20 @@ class Matrix: Equatable {
         }
         return true
     }
-    func sum(with other: Matrix) -> Matrix {
-        let out = Matrix()
-        (out.a, out.b, out.c, out.d) = (a+other.a, b+other.b, c+other.c, d+other.d)
-        return out
+    public static func * (left: Matrix, right: Matrix) -> Matrix {
+        Matrix(left.a*right.a + left.b*right.c,
+               left.a*right.b + left.b*right.d,
+               left.c*right.a + left.d*right.c,
+               left.c*right.b + left.d*right.d)
     }
-    func product(with other: Matrix) -> Matrix {
-        let out = Matrix()
-        out.a = a*other.a + b*other.c
-        out.b = a*other.b + b*other.d
-        out.c = c*other.a + d*other.c
-        out.d = c*other.b + d*other.d
-        return out
+    public static func + (left: Matrix, right: Matrix) -> Matrix {
+        Matrix(left.a+right.a,
+               left.b+right.b,
+               left.c+right.c,
+               left.d+right.d)
     }
+    func sum(with other: Matrix) -> Matrix { self+other }
+    func product(with other: Matrix) -> Matrix { self*other }
     func show() {
         print(String(format:"| %9.2e %9.2e |", a, b))
         print(String(format:"| %9.2e %9.2e |", c, d))
