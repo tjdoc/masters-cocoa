@@ -15,7 +15,7 @@ class BubbleSort {
     func sorted(isAscending: Bool) -> [Int] {
         var arrCopy = valArr
         var lastIndex = arrCopy.count-1
-        var swapped = false
+        var finished = false
         func swap(arr: inout [Int], aIndex: Int, bIndex:Int) {
             let temp = arr[aIndex]
             arr[aIndex] = arr[bIndex]
@@ -31,8 +31,8 @@ class BubbleSort {
                 }
             }
             lastIndex -= 1
-            swapped = lastIndex == 1 ? true : false
-        } while !swapped
+            finished = lastIndex == 1 ? true : false
+        } while !finished
         return arrCopy
     }
 }
