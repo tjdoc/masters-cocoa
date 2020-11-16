@@ -5,36 +5,25 @@
 //  Created by Tae-Jin Oh on 2020/11/13.
 //
 
-class MediaItem {
-    var name: String
-    init(name: String) {
-        self.name = name
+class StepCounter {
+    var totalSteps: Int = 0 {
+        willSet(newTotalSteps) {
+            print("About to set totalSteps to \(newTotalSteps - totalSteps)")
+        }
+        didSet {
+            if totalSteps > oldValue  {
+                print("Added \(totalSteps - oldValue) steps")
+            }
+        }
     }
 }
-
-class Movie: MediaItem {
-    var director: String
-    init(name: String, director: String) {
-        self.director = director
-        super.init(name: name)
-    }
-}
-
-var m1 : MediaItem = Movie(name: "Casablanca", director: "Michael Curtiz")
-var m2 : Movie = Movie(name: "StarWars", director: "George Lucas")
-var m3 : MediaItem = MediaItem(name: "D-War")
-// var m4 : Movie = MediaItem(name: "Godzilla") // Error
-
-print(m1 as MediaItem)
-print(m2 as MediaItem)
-print(m3 as MediaItem)
-//playground.Movie
-//playground.Movie
-//playground.MediaItem
-
-print(m1 as? Movie)
-print(m2 as Movie)
-print(m3 as? Movie)
-//Optional(playground.Movie)
-//playground.Movie
-//nil
+let stepCounter = StepCounter()
+stepCounter.totalSteps = 200
+// About to set totalSteps to 200
+// Added 200 steps
+stepCounter.totalSteps = 360
+// About to set totalSteps to 360
+// Added 160 steps
+stepCounter.totalSteps = 896
+// About to set totalSteps to 896
+// Added 536 steps
