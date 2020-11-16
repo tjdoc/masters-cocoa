@@ -8,13 +8,7 @@
 import Foundation
 
 class Matrix: Equatable {
-    var a: Double
-    var b: Double
-    var c: Double
-    var d: Double
-    var maxLen: Int {
-        max(String(a).count, String(b).count, String(c).count, String(d).count)
-    }
+    var a, b, c, d: Double
     init(_ a0:Double=0, _ b0:Double=0, _ c0:Double=0, _ d0:Double=0) {
         (a,b,c,d) = (a0, b0, c0, d0)
     }
