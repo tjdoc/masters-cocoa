@@ -23,9 +23,8 @@ struct SpecialBit {
     func find(by bitcount: Int) -> [String] {
         var out = [String]()
         for val in values {
-            var bitStr = String(val, radix:2)
-            let padding = String(repeating:"0", count:digit-bitStr.count)
-            bitStr = padding + bitStr
+            // String format tip from Ssong
+            let bitStr = String(format: "%0\(digit)d", Int(String(val, radix:2))!)
             if bitStr.filter({$0 == "1"}).count == bitcount {
                 out.append(bitStr)
             }

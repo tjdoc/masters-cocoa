@@ -21,14 +21,14 @@ let mat1 = Matrix(1,2,3,4)
 let mat2 = Matrix(10,100,1000,10000)
 let mat3 = mat1.sum(with: mat2)
 let sol1 = Matrix(11, 102, 1003, 10004)
-//mat3.show()
+mat3.show()
 print("sum test: ", mat3 == sol1 ? "PASS" : "FAIL")
 
 let mat4 = Matrix(1,0,0,1)
 let mat5 = Matrix(1,0,0,1)
 let mat6 = mat4.product(with: mat5)
 let sol2 = Matrix(1,0,0,1)
-//mat6.show()
+mat6.show()
 print("product test: ", mat6 == sol2 ? "PASS" : "FAIL")
 
 //==================================================

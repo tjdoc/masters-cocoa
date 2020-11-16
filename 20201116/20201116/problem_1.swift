@@ -12,6 +12,9 @@ class Matrix: Equatable {
     var b: Double
     var c: Double
     var d: Double
+    var maxLen: Int {
+        max(String(a).count, String(b).count, String(c).count, String(d).count)
+    }
     init(_ a0:Double=0, _ b0:Double=0, _ c0:Double=0, _ d0:Double=0) {
         (a,b,c,d) = (a0, b0, c0, d0)
     }
@@ -34,12 +37,8 @@ class Matrix: Equatable {
         out.d = c*other.b + d*other.d
         return out
     }
-    func paddedString(_ num: Double) -> String {
-        let maxLen = String(max(a,b,c,d)).count
-        return String(repeating: " ", count: maxLen-String(num).count)+String(num)
-    }
     func show() {
-        print("| \(paddedString(a)) \(paddedString(b)) |")
-        print("| \(paddedString(c)) \(paddedString(d)) |")
+        print(String(format:"| %9.2e %9.2e |", a, b))
+        print(String(format:"| %9.2e %9.2e |", c, d))
     }
 }
