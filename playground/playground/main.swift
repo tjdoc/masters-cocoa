@@ -6,4 +6,9 @@
 //
 import Foundation
 
-print(pow(2,0.5))
+
+let a = readLine()!
+let bc = readLine()!.split(separator: " ")
+let s = readLine()!
+print("\(Int(a)! + Int(bc[0])! + Int(bc[1])!) \(s)")
+
