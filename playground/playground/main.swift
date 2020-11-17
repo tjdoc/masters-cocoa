@@ -6,5 +6,4 @@
 //
 import Foundation
 
-var a, b, c, d: Double
-
+print(pow(2,0.5))

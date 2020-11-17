@@ -21,16 +21,16 @@ class Waiting {
         return standbyStatus ? .black : .red
     }
     var standbyButtonFontColor: UIColor {
-        return standbyStatus ? .white : .blue
+        return standbyStatus ? .white : .systemBlue
     }
     var standbyButtonBackgroundColor: UIColor {
-        return standbyStatus ? .blue : .gray
+        return standbyStatus ? .systemBlue : .gray
     }
     var completeButtonFontColor: UIColor {
-        return completeStatus ? .white : .blue
+        return completeStatus ? .white : .systemBlue
     }
     var completeBackgroundColor: UIColor {
-        return completeStatus ? .blue : .gray
+        return completeStatus ? .systemBlue : .gray
     }
     var progress: Float {
         return Float(queNum) / Float(queMax)
@@ -40,7 +40,7 @@ class Waiting {
     }
     func queAdd() {
         switch queNum {
-        case queNum where queNum+1 <= queMax:
+        case queNum where queNum + 1 <= queMax:
             queNum += 1
         default:
             break
