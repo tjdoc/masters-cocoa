@@ -9,7 +9,7 @@ import Foundation
 import UIKit
 
 struct Calculator {
-    var workingSpace = ""
+    var workingSpace = "0"
     var stack = [Double]()
     var operationMode: opMode = .null
     var evalComplete: Bool = false
