@@ -60,3 +60,19 @@ sortArr = BubbleSort(Array(0...10))
 print("original:   \(sortArr.valArr)")
 print("ascending:  \(sortArr.sorted(isAscending: true))")
 print("descending: \(sortArr.sorted(isAscending: false))")
+
+//==================================================
+printPractice("Extra: MergeSort Test 1")
+randArr = [Int]()
+for _ in 0..<10 {
+    randArr.append(Int.random(in:0..<100))
+}
+var sortArr2 = MergeSort(randArr)
+print("original:   \(sortArr2.ArrOriginal)")
+print("ascending:  \(sortArr2.topDownMergeSort())")
+
+printPractice("Extra: MergeSort Test 2", false)
+sortArr2 = MergeSort(Array(stride(from:10, through: 0, by: -1)))
+print("original:   \(sortArr2.ArrOriginal)")
+print("ascending:  \(sortArr2.topDownMergeSort())")
+

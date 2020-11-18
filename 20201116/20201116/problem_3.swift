@@ -37,3 +37,40 @@ class BubbleSort {
         return arrCopy
     }
 }
+
+// https://en.wikipedia.org/wiki/Merge_sort translated C code to swift
+class MergeSort {
+    let ArrOriginal: [Int]
+    var ArrA: [Int]
+    var ArrB: [Int]
+    let n: Int
+    init(_ initArr: [Int]) {
+        ArrOriginal = initArr
+        ArrA = initArr
+        ArrB = initArr
+        n = ArrA.count
+    }
+    func topDownMergeSort() -> [Int] {
+        topDownSplitMerge(&ArrB, 0, n, &ArrA)
+        return ArrA
+    }
+    func topDownSplitMerge(_ B: inout [Int], _ iBegin: Int, _ iEnd: Int, _ A: inout [Int]) {
+        if iEnd - iBegin <= 1 { return }
+        let iMiddle = (iEnd + iBegin) / 2
+        topDownSplitMerge(&A, iBegin, iMiddle, &B)
+        topDownSplitMerge(&A, iMiddle, iEnd, &B)
+        topDownMerge(&B, iBegin, iMiddle, iEnd, &A)
+    }
+    func topDownMerge(_ A: inout [Int], _ iBegin: Int, _ iMiddle: Int, _ iEnd: Int, _ B: inout [Int]) {
+        var i = iBegin, j = iMiddle
+        for k in iBegin..<iEnd {
+            if i < iMiddle && (j >= iEnd || A[i] <= A[j]) {
+                B[k] = A[i]
+                i += 1
+            } else {
+                B[k] = A[j]
+                j += 1
+            }
+        }
+    }
+}
