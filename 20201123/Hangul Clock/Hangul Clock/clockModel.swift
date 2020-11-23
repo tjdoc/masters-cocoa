@@ -7,10 +7,10 @@
 
 import Foundation
 
-func getCurrentTime() -> (Int, Int, Int) {
+func getCurrentTime() -> (Int, Int, Int, Int) {
     let calendar = NSCalendar(calendarIdentifier: NSCalendar.Identifier.gregorian)
-    let time = calendar?.components([.hour, .minute, .second], from: NSDate() as Date)
-    return (time?.hour ?? 0, time?.minute ?? 0, time?.second ?? 0)
+    let time = calendar?.components([.hour, .minute, .second, .nanosecond], from: NSDate() as Date)
+    return (time?.hour ?? 0, time?.minute ?? 0, time?.second ?? 0, time?.nanosecond ?? 0)
 }
 
 // mapping hour label tag number
@@ -19,19 +19,19 @@ func kor12Map(_ hour24: Int) -> [Int] {
     let hour12 = hour24 <= 12 ? hour24 : hour24-12
     let amPM = hour24 < 12 ? [100, 101] : [100, 102]
     let numDict12 = [
-        0: [0, 15], //"영시",
-        1: [2, 15], // "한시",
-        2: [3, 15], // "두시",
-        3: [4, 15], // "세시",
-        4: [5, 15], // "네시",
-        5: [6, 8, 15], // "다섯시",
-        6: [7, 8, 15], // "여섯시",
-        7: [9, 10, 15], // "일곱시",
-        8: [11, 12, 15], // "여덟시",
-        9: [13, 14, 15], // "아홉시",
-        10: [1, 15], // "열시",
-        11: [1, 2, 15], // "열한시",
-        12: [1, 3, 15] // "열두시"
+        0: [0, 15], // "영시",
+        1: [2, 15],
+        2: [3, 15],
+        3: [4, 15],
+        4: [5, 15],
+        5: [6, 8, 15],
+        6: [7, 8, 15],
+        7: [9, 10, 15],
+        8: [11, 12, 15],
+        9: [13, 14, 15],
+        10: [1, 15],
+        11: [1, 2, 15],
+        12: [1, 3, 15]
     ]
     return amPM + numDict12[hour12]!
 }
@@ -86,18 +86,12 @@ func intToKor60(_ num60: Int) -> [String] {
 }
 
 struct KoreanTime {
-    var (hour24, minute, second) = getCurrentTime()
-//    var (hour24, minute, second) = (0,0,40)
+    var (hour24, minute, second, nanosecond) = getCurrentTime()
     var isDayTime: Bool { get { hour24 >= 7 && hour24 <= 19 } }
     var hhArr: [Int] { get { kor12Map(hour24) } }
     var mmArr: [Int]? { get { kor60Map(minute) } }
     var ssArr: [String] { get { intToKor60(second) } }
-    mutating func updateTime() { (hour24, minute, second) = getCurrentTime() }
-//    mutating func updateTime() {
-//        hour24 = (hour24 + 1)%24
-//        minute = (minute + 1)%60
-//        second = (second + 1)%60
-//    }
+    mutating func updateTime() { (hour24, minute, second, nanosecond) = getCurrentTime() }
 }
 
 

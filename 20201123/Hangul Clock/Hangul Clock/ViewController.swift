@@ -16,17 +16,19 @@ class ViewController: UIViewController {
     @IBOutlet var allBigLabels: [UILabel]!
     
     let relativeFontConstant1: CGFloat = 0.09
-    let relativeFontConstant2: CGFloat = 0.035
+    let relativeFontConstant2: CGFloat = 0.033
     var currentTime = KoreanTime()
-    
+    var milliSecondOffset = 0
+
     @objc func refreshUI() {
         currentTime.updateTime()
-        // reset text color and size (in case of rotation event)
         allBigLabels.forEach {
+            // reset label color
             $0.textColor = .darkGray
             // adaptive font size to support different iPhone models
             $0.font = $0.font.withSize(self.view.frame.height * relativeFontConstant1)
         }
+        secondLabel.font = secondLabel.font.withSize(self.view.frame.height * relativeFontConstant2)
         dayNightLabel.text = currentTime.isDayTime ? "😎" : "🌙"
         switch currentTime.second {
         case 0:
@@ -50,12 +52,11 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        allBigLabels.forEach {
-            $0.font = $0.font.withSize(self.view.frame.height * relativeFontConstant1)
-            $0.textColor = .darkGray
-        }
-        secondLabel.font = secondLabel.font.withSize(self.view.frame.height * relativeFontConstant2)
-        // async - copied Isaac's code
+        refreshUI()
+        // sync second
+        milliSecondOffset = 1_000_000-(currentTime.nanosecond/1_000)
+        usleep(useconds_t(milliSecondOffset))
+        // async - inspired by Isaac's code
         let clock = DispatchWorkItem {
             Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshUI), userInfo: nil, repeats: true)
         }
