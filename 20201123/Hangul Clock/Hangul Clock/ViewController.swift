@@ -19,7 +19,7 @@ class ViewController: UIViewController {
     let relativeFontConstant2: CGFloat = 0.035
     var currentTime = KoreanTime()
     
-    func refreshUI() {
+    @objc func refreshUI() {
         currentTime.updateTime()
         // reset text color and size (in case of rotation event)
         allBigLabels.forEach {
@@ -39,13 +39,11 @@ class ViewController: UIViewController {
             secondLabel.text = "\(currentTime.ssArr.joined(separator:"\n"))초"
         }
         for hhTag in currentTime.hhArr {
-            hourLabel.filter{ $0.tag == hhTag }
-                .forEach{ $0.textColor = .white }
+            hourLabel.filter{ $0.tag == hhTag }.forEach{ $0.textColor = .white }
         }
         if let mmArr = currentTime.mmArr {
             for mmTag in mmArr {
-                minuteLabel.filter{ $0.tag == mmTag }
-                    .forEach{ $0.textColor = .white }
+                minuteLabel.filter{ $0.tag == mmTag }.forEach{ $0.textColor = .white }
             }
         }
     }
@@ -54,9 +52,15 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         allBigLabels.forEach {
             $0.font = $0.font.withSize(self.view.frame.height * relativeFontConstant1)
+            $0.textColor = .darkGray
         }
         secondLabel.font = secondLabel.font.withSize(self.view.frame.height * relativeFontConstant2)
-        let _ = Timer.scheduledTimer(withTimeInterval: 1, repeats: true) { (timer) in self.refreshUI() }
+        // async - copied Isaac's code
+        let clock = DispatchWorkItem {
+            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshUI), userInfo: nil, repeats: true)
+        }
+        DispatchQueue.main.async(execute: clock)
     }
 }
+
 
