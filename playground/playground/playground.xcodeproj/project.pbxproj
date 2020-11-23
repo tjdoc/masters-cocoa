@@ -3,15 +3,16 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A2EF6E79255E7B0B002AC9EA /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EF6E78255E7B0B002AC9EA /* main.swift */; };
+		A234B9EB2567AFE1000A51C9 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = A234B9EA2567AFE1000A51C9 /* main.swift */; };
+		A234B9F42567B00F000A51C9 /* Algorithms in Frameworks */ = {isa = PBXBuildFile; productRef = A234B9F32567B00F000A51C9 /* Algorithms */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		A2EF6E73255E7B0B002AC9EA /* CopyFiles */ = {
+		A234B9E52567AFE1000A51C9 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = /usr/share/man/man1/;
@@ -23,41 +24,42 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		A2EF6E75255E7B0B002AC9EA /* playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = playground; sourceTree = BUILT_PRODUCTS_DIR; };
-		A2EF6E78255E7B0B002AC9EA /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		A234B9E72567AFE1000A51C9 /* playground */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = playground; sourceTree = BUILT_PRODUCTS_DIR; };
+		A234B9EA2567AFE1000A51C9 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		A2EF6E72255E7B0B002AC9EA /* Frameworks */ = {
+		A234B9E42567AFE1000A51C9 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A234B9F42567B00F000A51C9 /* Algorithms in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		A2EF6E6C255E7B0B002AC9EA = {
+		A234B9DE2567AFE1000A51C9 = {
 			isa = PBXGroup;
 			children = (
-				A2EF6E77255E7B0B002AC9EA /* playground */,
-				A2EF6E76255E7B0B002AC9EA /* Products */,
+				A234B9E92567AFE1000A51C9 /* playground */,
+				A234B9E82567AFE1000A51C9 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		A2EF6E76255E7B0B002AC9EA /* Products */ = {
+		A234B9E82567AFE1000A51C9 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				A2EF6E75255E7B0B002AC9EA /* playground */,
+				A234B9E72567AFE1000A51C9 /* playground */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		A2EF6E77255E7B0B002AC9EA /* playground */ = {
+		A234B9E92567AFE1000A51C9 /* playground */ = {
 			isa = PBXGroup;
 			children = (
-				A2EF6E78255E7B0B002AC9EA /* main.swift */,
+				A234B9EA2567AFE1000A51C9 /* main.swift */,
 			);
 			path = playground;
 			sourceTree = "<group>";
@@ -65,38 +67,41 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		A2EF6E74255E7B0B002AC9EA /* playground */ = {
+		A234B9E62567AFE1000A51C9 /* playground */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = A2EF6E7C255E7B0B002AC9EA /* Build configuration list for PBXNativeTarget "playground" */;
+			buildConfigurationList = A234B9EE2567AFE1000A51C9 /* Build configuration list for PBXNativeTarget "playground" */;
 			buildPhases = (
-				A2EF6E71255E7B0B002AC9EA /* Sources */,
-				A2EF6E72255E7B0B002AC9EA /* Frameworks */,
-				A2EF6E73255E7B0B002AC9EA /* CopyFiles */,
+				A234B9E32567AFE1000A51C9 /* Sources */,
+				A234B9E42567AFE1000A51C9 /* Frameworks */,
+				A234B9E52567AFE1000A51C9 /* CopyFiles */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = playground;
+			packageProductDependencies = (
+				A234B9F32567B00F000A51C9 /* Algorithms */,
+			);
 			productName = playground;
-			productReference = A2EF6E75255E7B0B002AC9EA /* playground */;
+			productReference = A234B9E72567AFE1000A51C9 /* playground */;
 			productType = "com.apple.product-type.tool";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		A2EF6E6D255E7B0B002AC9EA /* Project object */ = {
+		A234B9DF2567AFE1000A51C9 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1210;
+				LastSwiftUpdateCheck = 1220;
 				LastUpgradeCheck = 1220;
 				TargetAttributes = {
-					A2EF6E74255E7B0B002AC9EA = {
-						CreatedOnToolsVersion = 12.1;
+					A234B9E62567AFE1000A51C9 = {
+						CreatedOnToolsVersion = 12.2;
 					};
 				};
 			};
-			buildConfigurationList = A2EF6E70255E7B0B002AC9EA /* Build configuration list for PBXProject "playground" */;
+			buildConfigurationList = A234B9E22567AFE1000A51C9 /* Build configuration list for PBXProject "playground" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -104,29 +109,32 @@
 				en,
 				Base,
 			);
-			mainGroup = A2EF6E6C255E7B0B002AC9EA;
-			productRefGroup = A2EF6E76255E7B0B002AC9EA /* Products */;
+			mainGroup = A234B9DE2567AFE1000A51C9;
+			packageReferences = (
+				A234B9F22567B00F000A51C9 /* XCRemoteSwiftPackageReference "swift-algorithms" */,
+			);
+			productRefGroup = A234B9E82567AFE1000A51C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A2EF6E74255E7B0B002AC9EA /* playground */,
+				A234B9E62567AFE1000A51C9 /* playground */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		A2EF6E71255E7B0B002AC9EA /* Sources */ = {
+		A234B9E32567AFE1000A51C9 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A2EF6E79255E7B0B002AC9EA /* main.swift in Sources */,
+				A234B9EB2567AFE1000A51C9 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		A2EF6E7A255E7B0B002AC9EA /* Debug */ = {
+		A234B9EC2567AFE1000A51C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -177,7 +185,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -187,7 +195,7 @@
 			};
 			name = Debug;
 		};
-		A2EF6E7B255E7B0B002AC9EA /* Release */ = {
+		A234B9ED2567AFE1000A51C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -232,7 +240,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.15;
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = macosx;
@@ -241,10 +249,9 @@
 			};
 			name = Release;
 		};
-		A2EF6E7D255E7B0B002AC9EA /* Debug */ = {
+		A234B9EF2567AFE1000A51C9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89R7N92L7F;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -253,10 +260,9 @@
 			};
 			name = Debug;
 		};
-		A2EF6E7E255E7B0B002AC9EA /* Release */ = {
+		A234B9F02567AFE1000A51C9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 89R7N92L7F;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -268,25 +274,44 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		A2EF6E70255E7B0B002AC9EA /* Build configuration list for PBXProject "playground" */ = {
+		A234B9E22567AFE1000A51C9 /* Build configuration list for PBXProject "playground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A2EF6E7A255E7B0B002AC9EA /* Debug */,
-				A2EF6E7B255E7B0B002AC9EA /* Release */,
+				A234B9EC2567AFE1000A51C9 /* Debug */,
+				A234B9ED2567AFE1000A51C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		A2EF6E7C255E7B0B002AC9EA /* Build configuration list for PBXNativeTarget "playground" */ = {
+		A234B9EE2567AFE1000A51C9 /* Build configuration list for PBXNativeTarget "playground" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A2EF6E7D255E7B0B002AC9EA /* Debug */,
-				A2EF6E7E255E7B0B002AC9EA /* Release */,
+				A234B9EF2567AFE1000A51C9 /* Debug */,
+				A234B9F02567AFE1000A51C9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A234B9F22567B00F000A51C9 /* XCRemoteSwiftPackageReference "swift-algorithms" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-algorithms";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.0.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A234B9F32567B00F000A51C9 /* Algorithms */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A234B9F22567B00F000A51C9 /* XCRemoteSwiftPackageReference "swift-algorithms" */;
+			productName = Algorithms;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
-	rootObject = A2EF6E6D255E7B0B002AC9EA /* Project object */;
+	rootObject = A234B9DF2567AFE1000A51C9 /* Project object */;
 }
