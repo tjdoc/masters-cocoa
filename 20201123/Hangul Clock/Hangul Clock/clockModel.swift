@@ -19,9 +19,9 @@ func kor12Map(_ hour24: Int) -> [Int] {
     let hour12 = hour24 <= 12 ? hour24 : hour24-12
     let amPM = hour24 < 12 ? [100, 101] : [100, 102]
     let numDict12 = [
-        0: [0, 15], // "영시"
-        1: [2, 15],
-        2: [3, 15],
+        0: [0, 15], // 0:"영", 15:"시"
+        1: [2, 15], // 2:"한", 15:"시"
+        2: [3, 15], // ...
         3: [4, 15],
         4: [5, 15],
         5: [6, 8, 15],
@@ -44,44 +44,27 @@ func kor60Map(_ num60: Int) -> [Int]? {
     case (0, 0):
         return nil
     case (0, _):
-        return [digit1+4, 14]
+        return [digit1+4, 14]               // x:"몇" 14:"분"
     case (1, _):
-        return [4, digit1+4, 14]
+        return [4, digit1+4, 14]            // 4:"십" x:"몇" 14:"분"
     case (_, _):
-        return [digit10-2, 4, digit1+4, 14]
+        return [digit10-2, 4, digit1+4, 14] // x:"몇" 4:"십" y:"몇" 14:"분"
     }
 }
 
 // Korean number string generator
 func intToKor60(_ num60: Int) -> [String] {
-    let numDict10 = [
-        0: "영",
-        1: "일",
-        2: "이",
-        3: "삼",
-        4: "사",
-        5: "오",
-        6: "육",
-        7: "칠",
-        8: "팔",
-        9: "구"
-    ]
+    let numArr = ["", "일", "이", "삼", "사", "오", "육", "칠", "팔", "구"]
     assert(num60 >= 0 && num60 < 60, "Invalid number")
     let digit10 = num60/10
     let digit1  = num60%10
-    switch (num60,digit1) {
-    case (num60, _) where num60 == 0:
-        return ["", "영"]
-    case (num60, _) where num60 < 10:
-        return ["", numDict10[digit1]!]
-    case (num60, _) where num60 == 10:
-        return ["십", ""]
-    case (num60, _) where num60 < 20:
-        return ["십", numDict10[digit1]!]
-    case (num60, digit1) where digit1 == 0:
-        return ["\(numDict10[digit10]!)십"]
+    switch num60 {
+    case 0..<10:
+        return [numArr[digit1]]
+    case 10..<20:
+        return ["십", numArr[digit1]]
     default:
-        return ["\(numDict10[digit10]!)십", numDict10[digit1]!]
+        return ["\(numArr[digit10])십", numArr[digit1]]
     }
 }
 
