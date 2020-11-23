@@ -37,13 +37,13 @@ class ViewController: UIViewController {
             secondLabel.text = "\(currentTime.ssArr.joined(separator:"\n"))초"
         }
         for hhTag in currentTime.hhArr {
-            hourLabel.filter{ $0.tag == hhTag }
-                .forEach{ $0.textColor = .white }
+            hourLabel.filter {$0.tag == hhTag}
+                .forEach {$0.textColor = .white}
         }
         if let mmArr = currentTime.mmArr {
             for mmTag in mmArr {
-                minuteLabel.filter{ $0.tag == mmTag }
-                    .forEach{ $0.textColor = .white }
+                minuteLabel.filter {$0.tag == mmTag}
+                    .forEach {$0.textColor = .white}
             }
         }
     }
