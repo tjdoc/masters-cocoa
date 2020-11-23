@@ -19,7 +19,7 @@ func kor12Map(_ hour24: Int) -> [Int] {
     let hour12 = hour24 <= 12 ? hour24 : hour24-12
     let amPM = hour24 < 12 ? [100, 101] : [100, 102]
     let numDict12 = [
-        0: [0, 15], // "영시",
+        0: [0, 15], // "영시"
         1: [2, 15],
         2: [3, 15],
         3: [4, 15],
