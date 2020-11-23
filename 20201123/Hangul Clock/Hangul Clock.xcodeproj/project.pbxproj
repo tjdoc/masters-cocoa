@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A28966A0256BFCCD0089FE7E /* Icon-120.png in Resources */ = {isa = PBXBuildFile; fileRef = A289669F256BFCCD0089FE7E /* Icon-120.png */; };
 		A2B7C598256B4E2E002E12C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C597256B4E2E002E12C1 /* AppDelegate.swift */; };
 		A2B7C59A256B4E2E002E12C1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C599256B4E2E002E12C1 /* SceneDelegate.swift */; };
 		A2B7C59C256B4E2E002E12C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2B7C59B256B4E2E002E12C1 /* ViewController.swift */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A289669F256BFCCD0089FE7E /* Icon-120.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Icon-120.png"; sourceTree = "<group>"; };
 		A2B7C594256B4E2E002E12C1 /* Hangul Clock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hangul Clock.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2B7C597256B4E2E002E12C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2B7C599256B4E2E002E12C1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -64,6 +66,7 @@
 				A2B7C59D256B4E2E002E12C1 /* Main.storyboard */,
 				A2B7C5AC256B5BAB002E12C1 /* clockModel.swift */,
 				A2B7C5A0256B4E30002E12C1 /* Assets.xcassets */,
+				A289669F256BFCCD0089FE7E /* Icon-120.png */,
 				A2B7C5A2256B4E30002E12C1 /* LaunchScreen.storyboard */,
 				A2B7C5A5256B4E30002E12C1 /* Info.plist */,
 			);
@@ -127,6 +130,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A28966A0256BFCCD0089FE7E /* Icon-120.png in Resources */,
 				A2B7C5A4256B4E30002E12C1 /* LaunchScreen.storyboard in Resources */,
 				A2B7C5A1256B4E30002E12C1 /* Assets.xcassets in Resources */,
 				A2B7C59F256B4E2E002E12C1 /* Main.storyboard in Resources */,
