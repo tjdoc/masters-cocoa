@@ -14,21 +14,17 @@ class ViewController: UIViewController {
     @IBOutlet var minuteLabel: [UILabel]!
     @IBOutlet weak var secondLabel: UILabel!
     @IBOutlet var allBigLabels: [UILabel]!
-    
-    let relativeFontConstant1: CGFloat = 0.09
-    let relativeFontConstant2: CGFloat = 0.033
+    let fontCoeff1: CGFloat = 0.09
+    let fontCoeff2: CGFloat = 0.033
     var currentTime = KoreanTime()
-    var milliSecondOffset = 0
 
     @objc func refreshUI() {
         currentTime.updateTime()
         allBigLabels.forEach {
-            // reset label color
             $0.textColor = .darkGray
-            // adaptive font size to support different iPhone models
-            $0.font = $0.font.withSize(self.view.frame.height * relativeFontConstant1)
+            $0.font = $0.font.withSize(self.view.frame.height * fontCoeff1)
         }
-        secondLabel.font = secondLabel.font.withSize(self.view.frame.height * relativeFontConstant2)
+        secondLabel.font = secondLabel.font.withSize(self.view.frame.height * fontCoeff2)
         dayNightLabel.text = currentTime.isDayTime ? "😎" : "🌙"
         switch currentTime.second {
         case 0:
@@ -41,11 +37,13 @@ class ViewController: UIViewController {
             secondLabel.text = "\(currentTime.ssArr.joined(separator:"\n"))초"
         }
         for hhTag in currentTime.hhArr {
-            hourLabel.filter{ $0.tag == hhTag }.forEach{ $0.textColor = .white }
+            hourLabel.filter{ $0.tag == hhTag }
+                .forEach{ $0.textColor = .white }
         }
         if let mmArr = currentTime.mmArr {
             for mmTag in mmArr {
-                minuteLabel.filter{ $0.tag == mmTag }.forEach{ $0.textColor = .white }
+                minuteLabel.filter{ $0.tag == mmTag }
+                    .forEach{ $0.textColor = .white }
             }
         }
     }
@@ -54,11 +52,14 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         refreshUI()
         // sync second
-        milliSecondOffset = 1_000_000-(currentTime.nanosecond/1_000)
-        usleep(useconds_t(milliSecondOffset))
+        usleep(useconds_t(1_000_000-(currentTime.nanosecond/1_000)))
         // async - inspired by Isaac's code
         let clock = DispatchWorkItem {
-            Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(self.refreshUI), userInfo: nil, repeats: true)
+            Timer.scheduledTimer(timeInterval: 1,
+                                 target: self,
+                                 selector: #selector(self.refreshUI),
+                                 userInfo: nil,
+                                 repeats: true)
         }
         DispatchQueue.main.async(execute: clock)
     }
