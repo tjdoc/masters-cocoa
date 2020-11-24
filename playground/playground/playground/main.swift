@@ -6,13 +6,36 @@
 //
 
 import Foundation
-import Algorithms
 
-let numbers = [10, 20, 30, 40, 50]
-var matchingIndices: Set<Int> = []
-for (i, n) in numbers.enumerated() {
-    if n.isMultiple(of: 20) {
-        matchingIndices.insert(i)
+class BackgroundWork {
+    var thread : Thread? = nil
+    
+    func doTimeConsumingOperation(operation : Any?) {
+        thread = Thread(target: self,
+                   selector: #selector(BackgroundWork.runHelper), object: operation)
+        thread?.start()
+    }
+    
+    @objc func runHelper(operation : Any?) {
+        let wait = 5
+        autoreleasepool { () in
+            // operation.do() ??
+            print("wait for \(wait) seconds: start")
+            sleep(UInt32(wait))
+            print("wait for \(wait) seconds: complete")
+        }
     }
 }
-print(matchingIndices)
+
+print("start")
+let some = BackgroundWork()
+some.doTimeConsumingOperation(operation: nil)
+print("middle")
+sleep(UInt32(10))
+print("end")
+
+//start
+//middle
+//wait for 5 seconds: start
+//wait for 5 seconds: complete
+//end
