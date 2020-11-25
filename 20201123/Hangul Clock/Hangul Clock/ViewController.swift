@@ -25,7 +25,7 @@ class ViewController: UIViewController {
             $0.font = $0.font.withSize(self.view.frame.height * fontCoeff1)
         }
         secondLabel.font = secondLabel.font.withSize(self.view.frame.height * fontCoeff2)
-        dayNightLabel.text = currentTime.isDayTime ? "😎" : "🌙"
+        dayNightLabel.text = currentTime.isDayTime ? "☀️" : "🌙"
         switch currentTime.second {
         case 0:
             secondLabel.text = "정각\n"
