@@ -40,44 +40,48 @@ print(mycsv.writeToDesktop(fileName: "test4.csv"))
 for ii in 1...20 {wordCountAsync(concurrentNum: ii)}
 
 // result --------------
-
-//개인: 58
-//경제: 712
-//국제: 41
-//노동: 619
-//대중: 47
-//부자: 72
-//사람: 424
-//사상: 242
-//사회: 617
-//새로운: 66
-//생활: 83
-//소비: 164
-//시장: 220
-//욕망: 17
-//이론: 263
-//인물: 44
-//자원: 25
-//자유: 307
-//재산: 102
-//학자: 287
-//Elapsed time with concurrent  1 threads: 0.23343289700278547
-//Elapsed time with concurrent  2 threads: 0.11810306600818876
-//Elapsed time with concurrent  3 threads: 0.08040908099792432
-//Elapsed time with concurrent  4 threads: 0.07086902200535405
-//Elapsed time with concurrent  5 threads: 0.06577696499880403
-//Elapsed time with concurrent  6 threads: 0.06541064599878155
-//Elapsed time with concurrent  7 threads: 0.0641817430005176
-//Elapsed time with concurrent  8 threads: 0.06421303999377415
-//Elapsed time with concurrent  9 threads: 0.06153406700468622
-//Elapsed time with concurrent 10 threads: 0.06380383399664424
-//Elapsed time with concurrent 11 threads: 0.06423706500208937
-//Elapsed time with concurrent 12 threads: 0.06047685199882835
-//Elapsed time with concurrent 13 threads: 0.06166824800311588
-//Elapsed time with concurrent 14 threads: 0.06282241699227598
-//Elapsed time with concurrent 15 threads: 0.06540574799873866
-//Elapsed time with concurrent 16 threads: 0.06384490799973719
-//Elapsed time with concurrent 17 threads: 0.06463742200867273
-//Elapsed time with concurrent 18 threads: 0.062415757987764664
-//Elapsed time with concurrent 19 threads: 0.062027683001360856
-//Elapsed time with concurrent 20 threads: 0.0638040800113231
+// Components       NSRegularExpression
+// *correct*        *incorrect*          *correct*
+// 개인: 58          58                   58
+// 경제: 739         712                  739
+// 국제: 41          41                   41
+// 노동: 624         619                  624
+// 대중: 47          47                   47
+// 부자: 72          72                   72
+// 사람: 425         424                  425
+// 사상: 249         242                  249
+// 사회: 619         617                  619
+// 새로운: 69         66                  69
+// 생활: 84          83                   84
+// 소비: 167         164                  167
+// 시장: 220         220                  220
+// 욕망: 17          17                   17
+// 이론: 264         263                  264
+// 인물: 44          44                   44
+// 자원: 25          25                   25
+// 자유: 307         307                  307
+// 재산: 102         102                  102
+// 학자: 291         287                  291
+//
+//                                          components            buggy NSRegularExpression  correct NSRegularExpression
+//                                          baseline              faster                     super-fast
+// Elapsed time with concurrent  1 threads: 0.34997959100292064   0.21968312599346973        0.00872062801499851
+// Elapsed time with concurrent  2 threads: 0.17711547398357652   0.11185295498580672        0.006370874005369842
+// Elapsed time with concurrent  3 threads: 0.12775109201902524   0.07887546400888823        0.005514301010407507
+// Elapsed time with concurrent  4 threads: 0.0997292689862661    0.05887587001780048        0.004939263017149642
+// Elapsed time with concurrent  5 threads: 0.10420420198352076   0.0604630489833653         0.005060194991528988
+// Elapsed time with concurrent  6 threads: 0.10204536799574271   0.061966601002495736       0.0048288780089933425
+// Elapsed time with concurrent  7 threads: 0.0936314919963479    0.05935210999450646        0.004782328003784642
+// Elapsed time with concurrent  8 threads: 0.09550223799305968   0.05900534300599247        0.0049814739904832095
+// Elapsed time with concurrent  9 threads: 0.0920162409893237    0.06242950598243624        0.004813906998606399
+// Elapsed time with concurrent 10 threads: 0.09516730500035919   0.05913641001097858        0.004379730991786346
+// Elapsed time with concurrent 11 threads: 0.09545908798463643   0.06506419600918889        0.004583247005939484
+// Elapsed time with concurrent 12 threads: 0.09495068198884837   0.05898041700129397        0.0046974970027804375
+// Elapsed time with concurrent 13 threads: 0.09897100599482656   0.062290795001899824       0.004839450994040817
+// Elapsed time with concurrent 14 threads: 0.09311492400593124   0.061616088001756          0.004791980987647548
+// Elapsed time with concurrent 15 threads: 0.09689176300889812   0.058945262018823996       0.004703579004853964
+// Elapsed time with concurrent 16 threads: 0.10089829101343639   0.06219605801743455        0.004680466983700171
+// Elapsed time with concurrent 17 threads: 0.09422703497693874   0.06163451200700365        0.004686308995587751
+// Elapsed time with concurrent 18 threads: 0.09901754197198898   0.06334725199849345        0.004636046011000872
+// Elapsed time with concurrent 19 threads: 0.09524539901758544   0.06143143301596865        0.0045321930083446205
+// Elapsed time with concurrent 20 threads: 0.09926398599054664   0.06250075798016042        0.005712613987270743

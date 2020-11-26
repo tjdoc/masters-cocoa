@@ -18,37 +18,35 @@ class CsvProcessor {
     }
     // initializes with csv file at user desktop
     init(csvFileName: String) {
-        let documentDirectory = fm.urls(for: .desktopDirectory, in: .userDomainMask).first!
-        let fileURL = documentDirectory.appendingPathComponent(csvFileName)
+        let desktopDirectory = fm.urls(for: .desktopDirectory, in: .userDomainMask).first!
+        //let downloadDirectory = fm.urls(for: .downloadsDirectory, in: .userDomainMask).first!
+        let fileURL = desktopDirectory.appendingPathComponent(csvFileName)
         readCSV(fileURL: fileURL)
     }
     func readCSV(fileURL: URL) {
-        if !fm.fileExists(atPath: fileURL.path) {
-            print("file does not exist!")
-            csvData = [["Error: File not found":0]]
-        } else {
-            do {
-                let csvRecords = try String(contentsOf: fileURL, encoding: .utf8).split(separator: "\n")
-                for (ii, record) in csvRecords.enumerated() {
-                    switch ii {
-                    case 0:
-                        record.split(separator: ",").forEach
-                        {keyList.append(String($0.trimmingCharacters(in: .whitespaces)))}
-                    default:
-                        var tempDic = [String: Any]()
-                        for (ii, val) in record.split(separator: ",").enumerated() {
-                            tempDic[keyList[ii]] = ii == 3 ?
-                                Int(val.trimmingCharacters(in: .whitespaces)) ?? 0 : val.trimmingCharacters(in: .whitespaces)
-                        }
-                        csvData.append(tempDic)
+        assert(fm.fileExists(atPath: fileURL.path), "CSV file does not exist")
+        do {
+            let csvRecords = try String(contentsOf: fileURL, encoding: .utf8).split(separator: "\n")
+            for (ii, record) in csvRecords.enumerated() {
+                switch ii {
+                case 0:
+                    record.split(separator: ",").forEach
+                    {keyList.append(String($0.trimmingCharacters(in: .whitespaces)))}
+                default:
+                    var tempDic = [String: Any]()
+                    for (ii, val) in record.split(separator: ",").enumerated() {
+                        tempDic[keyList[ii]] = ii == 3 ?
+                            Int(val.trimmingCharacters(in: .whitespaces)) ?? 0 : val.trimmingCharacters(in: .whitespaces)
                     }
+                    csvData.append(tempDic)
                 }
             }
-            catch let error as NSError {
-                print("Error creating File : \(error.localizedDescription)")
-            }
+        }
+        catch let error as NSError {
+            print("Error creating File : \(error.localizedDescription)")
         }
     }
+    
     func add(name: String, email: String, language: String, grade: Int) {
         csvData.append(["name": name, "email": email, "language": language, "grade": grade])
     }
@@ -78,8 +76,8 @@ class CsvProcessor {
         return writeOperation(fileURL: URL(fileURLWithPath: filePath, isDirectory: false))
     }
     func writeToDesktop(fileName: String) -> Bool {
-        let documentDirectory = fm.urls(for: .desktopDirectory, in: .userDomainMask).first!
-        let fileURL = documentDirectory.appendingPathComponent(fileName)
+        let desktopDirectory = fm.urls(for: .desktopDirectory, in: .userDomainMask).first!
+        let fileURL = desktopDirectory.appendingPathComponent(fileName)
         return writeOperation(fileURL: fileURL)
     }
     func writeOperation(fileURL: URL) -> Bool {

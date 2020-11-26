@@ -27,9 +27,21 @@ func download2DownloadsFolder(fileURL: String, saveAs: String) {
     downloadTask.resume()
 }
 
-func wordCount(content: String, word: String) -> Int {
-    let regex = try! NSRegularExpression(pattern: word)
-    return regex.numberOfMatches(in: content, options:[], range: (NSMakeRange(0, content.count)))
+func wordCount(content: String, word: String, method: Int = 1) -> Int {
+    switch method {
+    case 0:
+        // Slower than NSRegularExpression (about 40 times using single thread, 20 times using 8 thread)
+        return content.components(separatedBy: word).count - 1
+    default:
+        let regex = try! NSRegularExpression(pattern: word)
+        /// incorrect
+        // return regex.numberOfMatches(in: content, options:[], range: (NSMakeRange(0, content.count)))
+        
+        /// correct. Internally, string count uses NSString. Range parameter must be using NSString length (do NOT use swift string length)
+        /// https://stackoverflow.com/questions/27880650/swift-extract-regex-matches
+        return regex.numberOfMatches(in: content, options:[], range: NSRange(content.startIndex..., in: content))
+        
+    }
 }
 
 func wordCountAsync(concurrentNum: Int) {

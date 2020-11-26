@@ -52,7 +52,9 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         refreshUI()
         // sync second
-        usleep(useconds_t(1_000_000-(currentTime.nanosecond/1_000)))
+        // using 1_000_010 instead of 1_000_000 is intentional
+        // using 1M can lead to 1 second lag
+        usleep(useconds_t(1_000_010-(currentTime.nanosecond/1_000)))
         // async - inspired by Isaac's code
         let clock = DispatchWorkItem {
             Timer.scheduledTimer(timeInterval: 1,
