@@ -30,7 +30,7 @@ func download2DownloadsFolder(fileURL: String, saveAs: String) {
 func wordCount(content: String, word: String, method: Int = 1) -> Int {
     switch method {
     case 0:
-        // Slower than NSRegularExpression (about 40 times using single thread, 20 times using 8 thread)
+        // Slower than NSRegularExpression
         return content.components(separatedBy: word).count - 1
     default:
         let regex = try! NSRegularExpression(pattern: word)
@@ -82,7 +82,7 @@ func wordCountAsync(concurrentNum: Int) {
             semaphore.signal()
         }
     }
-    sleep(1)
+    usleep(100_000)
     if concurrentNum == 1 {
         let sortedDic = wordCountDict.sorted(by: {$0.0 < $1.0})
         for (k,v) in sortedDic {
