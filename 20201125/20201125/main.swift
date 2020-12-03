@@ -8,7 +8,7 @@
 import Foundation
 
 // problem 1
-
+/*
 print(files(at: "/System/Library/Desktop Pictures", sort: true))
 //[".orderedPictures.plist", ".thumbnails", "Big Sur Aerial.heic", "Big Sur Coastline.heic", "Big Sur Day.heic", "Big Sur Graphic Day.heic", "Big Sur Graphic Night.heic", "Big Sur Graphic.heic", "Big Sur Horizon.heic", "Big Sur Mountains.heic", "Big Sur Night Grasses.heic", "Big Sur Night Succulents.heic", "Big Sur Night.heic", "Big Sur Road.heic", "Big Sur Shore Rocks.heic", "Big Sur Waters Edge.heic", "Big Sur.heic", "Catalina Clouds.heic", "Catalina Coast.heic", "Catalina Day.heic", "Catalina Evening.heic", "Catalina Night.heic", "Catalina Rock.heic", "Catalina Shoreline.heic", "Catalina Silhouette.heic", "Catalina Sunset.heic", "Catalina.heic", "Dome Day.heic", "Dome Night.heic", "Dome.heic", "Iridescence Day.heic", "Iridescence Night.heic", "Iridescence.heic", "Light Stream Blue.heic", "Light Stream Red.heic", "Peak Day.heic", "Peak Night.heic", "Peak.heic", "Reflection 1.jpg", "Reflection 2.jpg", "Reflection 3.jpg", "Reflection 4.jpg", "Solar Gradients.heic", "Solid Colors", "The Beach Day.heic", "The Beach Night.heic", "The Beach.heic", "The Cliffs Day.heic", "The Cliffs Night.heic", "The Cliffs.heic", "The Desert Day.heic", "The Desert Night.heic", "The Desert.heic", "The Lake Day.heic", "The Lake Night.heic", "The Lake.heic", "Tree Day.heic", "Tree Night.heic", "Tree.heic", "Valley Day.heic", "Valley Night.heic", "Valley.heic"]
 
@@ -32,7 +32,7 @@ print(mycsv.removeBy(email: "non_existant@email.com"))
 mycsv.show()
 print(mycsv.writeToPath(filePath: "/Users/oht/Desktop/test3.csv"))
 print(mycsv.writeToDesktop(fileName: "test4.csv"))
-
+*/
 
 // problem 3
 
