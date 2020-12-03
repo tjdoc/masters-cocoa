@@ -52,6 +52,11 @@ class MusicViewController: UIViewController {
         NotificationCenter.default.removeObserver(self)
     }
     
+//    override func viewDidLayoutSubviews() {
+//            super.viewDidLayoutSubviews()
+//            lyricsTextView.setContentOffset(.zero, animated: false)
+//    }
+    
     @objc func updateProgress() {
         guard let totalTime = myflow.musicPlayer.nowPlayingItem?.playbackDuration else {
             timeLeft.text = "?"
@@ -70,21 +75,33 @@ class MusicViewController: UIViewController {
         songTime.text = getTime(myflow.musicPlayer.nowPlayingItem?.playbackDuration)
         timeLeft.text = "-"+songTime.text!
         progressBar.progress = 0.0
-        
-        
-        if myflow.musicPlayer.nowPlayingItem?.lyrics! != ""  {
-            lyricsTextView.text = myflow.musicPlayer.nowPlayingItem?.lyrics!
-            lyricsAvailable = true
-        } else {
-            lyricsAvailable = false
-        }
-        self.showLyrics()
-        
         if myflow.musicPlayer.nowPlayingItem?.artwork != nil {
             generateBackground(avgColor: (myflow.musicPlayer.nowPlayingItem!.artwork!.image(at: CGSize(width: 10, height: 10))?.averageColor)!)
         } else {
             generateBackground(avgColor: UIColor(red: 0, green: 0, blue: 0, alpha: 1))
         }
+        if myflow.musicPlayer.nowPlayingItem?.lyrics! != ""  {
+            let style = NSMutableParagraphStyle()
+            style.lineSpacing = 7
+            let font = UIFont.systemFont(ofSize: 18)
+            let shadow = NSShadow()
+            shadow.shadowColor = UIColor.black
+            shadow.shadowBlurRadius = 7
+            let attributes: [NSAttributedString.Key: Any] = [
+                .font: font,
+                .foregroundColor: UIColor.white,
+                .shadow: shadow,
+                .paragraphStyle: style
+            ]
+            self.lyricsTextView.attributedText = NSAttributedString(string: (self.myflow.musicPlayer.nowPlayingItem?.lyrics!)!, attributes:attributes)
+            // works for english lyrics. but Korean does not work well. why?
+            self.lyricsTextView.scrollRangeToVisible(NSMakeRange(0,0))
+//            self.lyricsTextView.setContentOffset(.zero, animated: false)
+            self.lyricsAvailable = true
+        } else {
+            self.lyricsAvailable = false
+        }
+        self.showLyrics()
     }
 
     func getTime(_ doubleTime: Double?) -> String {
@@ -167,9 +184,13 @@ class MusicViewController: UIViewController {
         switch (self.lyricsMode, self.lyricsAvailable) {
         case (true, true):
             self.lyricsTextView.isHidden = false
+//            self.lyricsTextView.scrollRangeToVisible(NSMakeRange(0,0))
+//            self.lyricsTextView.setContentOffset(.zero, animated: false)
+//            self.lyricsTextView.layoutIfNeeded()
         default:
             self.lyricsTextView.isHidden = true
         }
+        self.lyricsTextView.scrollRangeToVisible(NSMakeRange(0,0))
     }
 }
 

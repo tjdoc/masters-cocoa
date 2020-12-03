@@ -46,8 +46,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         switch (indexPath.section, indexPath.row) {
         case (0, _):
             cell.textLabel!.text = self.myflow.mydic[indexPath.section]![indexPath.row].value(forProperty: MPMediaPlaylistPropertyName) as? String
-        case (1,_):
+        case (1, _):
             cell.textLabel!.text = self.myflow.mydic[indexPath.section]![indexPath.row].representativeItem!.genre!
+        case (2, _):
+            cell.textLabel!.text = self.myflow.mydic[indexPath.section]![indexPath.row].representativeItem!.artist!
+        case (3, _):
+            cell.textLabel!.text = self.myflow.mydic[indexPath.section]![indexPath.row].representativeItem!.albumTitle!
         default:
             cell.textLabel!.text = "??"
         }

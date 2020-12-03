@@ -9,10 +9,10 @@ import Foundation
 import MediaPlayer
 
 class Flow {
-    var playlistArr, genreArr: [MPMediaItemCollection]?
+    var playlistArr, genreArr, albumArr, artistArr: [MPMediaItemCollection]?
 //    var playlistArr, genreArr, albumArr, artistArr, songArr, composerArr, compilationArr, podcastArr, audiobookArr: [MPMediaItemCollection]?
     let mydic: [Int:[MPMediaItemCollection]]
-    let audioCategory = ["Playlists", "Genres"]
+    let audioCategory = ["Playlists", "Genres", "Artists", "Albums"]
     var sectionIdx = 0
     var itemIdx = 0
     var currentSongIdx = 0
@@ -20,8 +20,10 @@ class Flow {
     let musicPlayer = MPMusicPlayerController.applicationQueuePlayer
     init() {
         self.playlistArr = MPMediaQuery.playlists().collections
-        self.genreArr = MPMediaQuery.genres().collections        
-        self.mydic = [0: self.playlistArr!, 1: self.genreArr!]
+        self.genreArr = MPMediaQuery.genres().collections
+        self.artistArr = MPMediaQuery.artists().collections
+        self.albumArr = MPMediaQuery.albums().collections        
+        self.mydic = [0: self.playlistArr!, 1: self.genreArr!, 2: self.artistArr!, 3: self.albumArr!]
     }
     func getAuthorization() {
         MPMediaLibrary.requestAuthorization { (status) in
